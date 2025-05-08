@@ -81,7 +81,9 @@ async def clear_cart(message: types.Message, state: FSMContext):
 
 # Mahsulotni o'chirishni boshlash
 async def remove_product_start(message: types.Message, state: FSMContext):
-    product_name = message.text.replace(" o'chirish", "")
+    # "Olma x1 o'chirish" dan faqat "Olma" ni olish
+    text = message.text.replace(" o'chirish", "")
+    product_name = text.split(" x")[0]
     await state.update_data(product_name=product_name)
     await message.answer("Necha dona o'chirilsin? (raqam kiriting):", reply_markup=remove_quantity_keyboard())
     await state.set_state(UserStates.REMOVE_PRODUCT_QUANTITY)

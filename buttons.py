@@ -3,6 +3,20 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 # Admin ID (o'zingizning Telegram user ID ngiz bilan almashtiring)
 ADMIN_ID = 6585387011  # Masalan, o'zingizning ID ngizni kiriting
 
+
+# Admin panel menyusini ko'rsatish
+def get_admin_menu() -> ReplyKeyboardMarkup:
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="➕ Yangi mahsulot"), KeyboardButton(text="✏️ Mahsulotni o'zgartirish")],
+            [KeyboardButton(text="❌ Mahsulotni o'chirish"), KeyboardButton(text="🔙 Orqaga")]
+        ],
+        resize_keyboard=True
+    )
+
+
+
+
 # Boshlang'ich menyuni ko'rsatish
 def get_main_menu(user_id: int) -> ReplyKeyboardMarkup:
     if user_id == ADMIN_ID:
@@ -39,16 +53,6 @@ def get_cart_menu(items: list) -> ReplyKeyboardMarkup:
     keyboard.keyboard.append([KeyboardButton(text="❌ Savatni tozalash"), KeyboardButton(text="Hammasini")])
     keyboard.keyboard.append([KeyboardButton(text="🔙 Orqaga")])
     return keyboard
-
-# Admin panel menyusini ko'rsatish
-def get_admin_menu() -> ReplyKeyboardMarkup:
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text="➕ Yangi mahsulot"), KeyboardButton(text="✏️ Mahsulotni o'zgartirish")],
-            [KeyboardButton(text="❌ Mahsulotni o'chirish"), KeyboardButton(text="🔙 Orqaga")]
-        ],
-        resize_keyboard=True
-    )
 
 # Mahsulotni o'chirish uchun so'rovni tozalash
 def remove_quantity_keyboard() -> ReplyKeyboardRemove:

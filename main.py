@@ -8,7 +8,7 @@ from handlers import router
 logging.basicConfig(level=logging.INFO)
 
 # Bot tokeni (o'zingizning tokeningiz bilan almashtiring)
-API_TOKEN = 'token'
+API_TOKEN = '8115365929:AAEuc3JvecOe8dqDjvh1JTNmc27KAHCvjgQ'
 
 # Bot va Dispatcher
 bot = Bot(token=API_TOKEN)
